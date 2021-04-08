@@ -1,0 +1,4 @@
+[0m[[0m[0mdebug[0m] [0m[0m[wccli-build] Classpath dependencies List()[0m
+[0m[[0m[0mdebug[0m] [0m[0m[wccli-build] Dependencies from configurations List()[0m
+[0m[[0m[0mdebug[0m] [0m[0mBloop wrote the configuration of project 'wccli-build' to '/home/timmiller/myfolder/myWCCLI/wccli/project/.bloop/wccli-build.json'[0m
+[0m[[0m[32msuccess[0m] [0m[0mGenerated .bloop/wccli-build.json[0m
