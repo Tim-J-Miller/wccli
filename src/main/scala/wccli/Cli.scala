@@ -29,6 +29,9 @@ class Cli{
                 case commandArgPattern(cmd, arg) if cmd == "wordcount" => {
                     wordcount(arg)
                 }
+                case commandArgPattern(cmd, arg) if cmd == "palindromecount" => {
+                    palindromecount(arg)
+                }
                 case commandArgPattern(cmd, arg) if cmd == "exit" => {
                     continueMenuLoop = false
                 }
@@ -54,6 +57,7 @@ class Cli{
             "getFiles: lists files in the current directory",
             "first100chars [filename]: reads the first 100 character of the file",
             "wordcount [filename]: counts the number of words in the file",
+            "palindromecount [filename]: counts the number of palindromes in the file",
             "exit exits WC CLI:"
             ).foreach(println)
     }
@@ -68,11 +72,13 @@ class Cli{
           }
         }
     }
-
+    def getWords(filename: String) = {
+        getFileTextContent(filename).toString.replaceAll("\\p{Punct}+", "").split("\\s+").map(_.toUpperCase())
+    }
     def wordcount(filename: String) = {
         val wordCountMap = Map[String, Int]()
         //val words = FileUtil.getTextContent(filename).replaceAll("\\p{Punct}+", "").split("\\s+").map(_.toUpperCase())
-        val words = getFileTextContent(filename).toString.replaceAll("\\p{Punct}+", "").split("\\s+").map(_.toUpperCase())
+        val words = getWords(filename)
 
         // for(word <- words){
         //     if (wordCountMap.contains(word)){
@@ -84,6 +90,14 @@ class Cli{
         // //wordCountMap.foreach({case (word, count) => {println(s"$word: $count")}})
         // wordCountMap.foreachEntry((word: String, count: Int) => {println(s"$word: $count")})
 
+        mapReduce(words)
+    }
+    def palindromecount(filename: String) = {
+        val palindromeCountMap = Map[String, Int]()
+        val words = getWords(filename).filter(x => {x == x.reverse})
+        mapReduce(words)
+    }
+    def mapReduce(words: Array[String]) = {
         if (words(0) != "") {
             words.groupMapReduce(identity)(_ => 1)(_ + _)
             .foreach({case (word, count) => {println(s"$word: $count")}})
