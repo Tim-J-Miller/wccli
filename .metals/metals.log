@@ -1069,3 +1069,5 @@ WARNING: Unmatched cancel notification for request id 287
 [0m2021.04.09 07:46:43 INFO  time: compiled wccli in 0.84s[0m
 [0m2021.04.09 07:47:01 INFO  compiling wccli (1 scala source)[0m
 [0m2021.04.09 07:47:01 INFO  time: compiled wccli in 0.8s[0m
+Apr 09, 2021 7:50:40 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTraceNotification

@@ -1,4 +1,0 @@
-[debug] [wccli-test] Classpath dependencies List()
-[debug] [wccli-test] Dependencies from configurations List(wccli)
-[debug] Bloop wrote the configuration of project 'wccli-test' to '/home/timmiller/myfolder/myWCCLI/wccli/.bloop/wccli-test.json'
-[success] Generated .bloop/wccli-test.json
